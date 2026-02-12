@@ -10,9 +10,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "cors": "^2.8.6",
     "dotenv": "^17.2.4",
     "express": "^5.2.1",
-    "mongoose": "^8.23.0"
+    "mongoose": "^8.23.0",
+    "react-bootstrap": "^2.10.10",
+    "swr": "^2.4.0"
   }
 }
