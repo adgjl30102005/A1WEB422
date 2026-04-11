@@ -1,6 +1,17 @@
-/********************************************************************************
+/*********************************************************************************
 *  WEB422 – Assignment 3
-********************************************************************************/
+*
+*  I declare that this assignment is my own work in accordance with Seneca's
+*  Academic Integrity Policy:
+* 
+*  https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
+* 
+*  Name: Thien Phuc Ngo 115294233 10/04/2026
+*
+*  Vercel API (Deployed) Link: https://a3-m0dp.onrender.com/
+*
+********************************************************************************/ 
+
 const express = require('express');
 const app = express();
 const cors = require("cors");
@@ -8,7 +19,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const userService = require("./user-service.js");
-const dataService = require("./data-service.js"); // IMPORTANT
+const dataService = require("./data-service.js"); 
 
 const jwt = require("jsonwebtoken");
 
@@ -17,8 +28,6 @@ const JWTStrategy = require("passport-jwt").Strategy;
 const ExtractJWT = require("passport-jwt").ExtractJwt;
 
 const HTTP_PORT = process.env.PORT || 8080;
-
-// ---------------- JWT SETUP ----------------
 
 let opts = {
   jwtFromRequest: ExtractJWT.fromAuthHeaderWithScheme("jwt"),
@@ -29,13 +38,11 @@ passport.use(new JWTStrategy(opts, (jwt_payload, done) => {
   return done(null, jwt_payload);
 }));
 
-// ---------------- MIDDLEWARE ----------------
 
 app.use(passport.initialize());
 app.use(express.json());
 app.use(cors());
 
-// ---------------- ROOT ROUTE ----------------
 
 app.get("/", (req, res) => {
   res.json({
