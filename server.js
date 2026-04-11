@@ -156,9 +156,7 @@ app.get("/api/sites",
   }
 );
 
-app.get("/api/sites/:id",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
+app.get("/api/sites/:id", async (req, res) => {
     try {
       const site = await dataService.getSiteById(req.params.id);
 
